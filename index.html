@@ -2,96 +2,203 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Los Pichulos Locos | Cafetería</title>
-
-  <!-- Esto conecta el archivo de estilos, sirve para darle color y diseño a la página -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Esto es el encabezado con el menú de navegación -->
-  <!-- Sirve para que el usuario navegue, y de paso aquí medimos la precisión del mouse -->
-  <!-- porque los enlaces están cerca uno del otro -->
+  <!-- Esto sirve para que quien navega con teclado pueda saltarse el menú -->
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ANIMADO 1 (para el patrón sensorial).
+       data-nai-motion = "este elemento se mueve" (el script mide si la persona lo evita).
+       data-nai-extra  = "es decorativo" (el modo enfoque lo oculta). -->
+  <div class="cinta" data-nai-motion data-nai-extra aria-hidden="true">
+    <span class="cinta-texto">Café recién molido &bull; Pan dulce del día &bull; Barra abierta todos los días &bull; Café recién molido &bull; Pan dulce del día &bull; Barra abierta todos los días</span>
+  </div>
+
+  <!-- Menú de arriba. Los enlaces son chicos y están juntos a propósito:
+       data-nai-target="link" sirve para medir qué tan bien acierta la persona al hacer clic. -->
   <header class="encabezado">
-    <div class="logo">Los Pichulos Locos</div>
-    <nav class="menu">
-      <a href="#inicio" data-nai-target="link">Inicio</a>
-      <a href="#menu" data-nai-target="link">Menú</a>
-      <a href="#nosotros" data-nai-target="link">Nosotros</a>
-      <a href="#faq" data-nai-target="link">Preguntas</a>
-      <a href="#contacto" data-nai-target="link">Contacto</a>
-    </nav>
+    <div class="encabezado-interior">
+      <a class="logo" href="#inicio" data-nai-target="link">Los Pichulos Locos</a>
+      <nav aria-label="Principal">
+        <ul class="menu">
+          <li><a href="#inicio" data-nai-target="link">Inicio</a></li>
+          <li><a href="#menu" data-nai-target="link">Menú</a></li>
+          <li><a href="#nosotros" data-nai-target="link">Nosotros</a></li>
+          <li><a href="#preguntas" data-nai-target="link">Preguntas</a></li>
+          <li><a href="#contacto" data-nai-target="link">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- Esto es la portada principal, sirve nada más de bienvenida -->
-  <section id="inicio" class="portada">
-    <h1>Bienvenido a Los Pichulos Locos</h1>
-    <p>El mejor café de la ciudad, hecho con cariño todos los días.</p>
-    <!-- Este botón es grande a propósito, sirve para comparar contra el chiquito de más abajo -->
-    <button class="boton-grande" data-nai-target="accion">Ver menú completo</button>
-  </section>
+  <main id="contenido">
 
-  <!-- Esto es la sección de historia, sirve para tener texto largo -->
-  <!-- y medir si el usuario se regresa con el scroll para releer -->
-  <section id="nosotros" class="bloque-texto" data-nai-block="historia">
-    <h2>Nuestra historia</h2>
-    <p>Los Pichulos Locos nació como un sueño entre tres amigos que querían compartir
-    el gusto por el buen café con su comunidad. Desde nuestros inicios, nos hemos
-    enfocado en seleccionar los mejores granos, cultivados por pequeños productores
-    que cuidan cada etapa del proceso con dedicación.</p>
-    <p>Con el paso del tiempo, nuestra cafetería se convirtió en un punto de encuentro
-    para quienes buscan una pausa en su día, un lugar donde conversar, trabajar o
-    simplemente disfrutar de una buena taza. Creemos que el café no solo se bebe,
-    se comparte.</p>
-    <p>Hoy seguimos creciendo, siempre fieles a esa idea original: ofrecer calidad,
-    calidez y un servicio cercano a cada persona que cruza nuestra puerta.</p>
-  </section>
+    <!-- ============ INICIO ============ -->
+    <section id="inicio" class="seccion">
+      <div class="contenedor">
+        <!-- Esto sirve para poner TU imagen: guarda el archivo en la carpeta "imagenes"
+             con el nombre que dice data-archivo (o cambia el nombre aquí). -->
+        <figure class="imagen imagen-grande" data-archivo="imagenes/portada.jpg">
+          <img src="imagenes/portada.jpg" alt="Interior de la cafetería con la barra de café" onerror="this.remove()">
+        </figure>
 
-  <!-- Esto es la sección de granos de café, otro bloque largo de texto -->
-  <!-- Sirve igual que el anterior: medir relectura en un segundo bloque -->
-  <section id="menu" class="bloque-texto" data-nai-block="granos">
-    <h2>Nuestros granos de café</h2>
-    <p>Trabajamos con variedades arábica cultivadas en altitudes ideales, lo que les
-    da un perfil de sabor suave con notas achocolatadas y un toque frutal. Cada lote
-    es tostado en pequeñas cantidades para garantizar frescura en cada taza.</p>
-    <p>Ofrecemos desde espresso clásico hasta métodos de filtrado como V60 y prensa
-    francesa, pensando en quienes disfrutan experimentar con distintos sabores y
-    texturas. Todo nuestro café se muele al momento de preparar cada pedido.</p>
-    <p>Además, contamos con opciones sin cafeína y alternativas vegetales para quienes
-    buscan otras opciones, porque un buen café también es un café para todos.</p>
-    <!-- Este botón es de tamaño normal, sirve de punto medio para comparar -->
-    <button class="boton-normal" data-nai-target="accion">Reservar mesa</button>
-  </section>
+        <h1>Café con carácter, hecho con calma.</h1>
+        <p class="destacado">Granos de tostado medio, pan del día y una barra donde nadie te apura.</p>
 
-  <!-- Esto es la sección de preguntas frecuentes, el tercer bloque de texto -->
-  <section id="faq" class="bloque-texto" data-nai-block="preguntas">
-    <h2>Preguntas frecuentes</h2>
-    <p>¿Tienen opciones sin gluten? Sí, contamos con repostería preparada especialmente
-    sin gluten,Esto se implemento por uno de nuestros fundadores "Rodrigo" quien prefiere las cosas sin gluten,
-     elaborada en un área separada de nuestra cocina para evitar cualquier
-    contaminación cruzada.</p>
-    <p>¿Puedo reservar una mesa para grupos grandes? Claro que sí, solo te pedimos
-    contactarnos con al menos un día de anticipación para preparar todo con tiempo.</p>
-    <p>¿Tienen servicio para llevar? Sí, puedes ordenar en mostrador o a través de
-    nuestra aplicación, y tu pedido estará listo en minutos.</p>
-  </section>
+        <!-- ANIMADO 2: un puntito que late -->
+        <p class="abierto" data-nai-motion data-nai-extra><span class="punto" aria-hidden="true"></span> Abierto hoy de 8:00 a 21:00</p>
 
-  <!-- Esto es la sección de contacto, con un botón chiquito a propósito -->
-  <!-- Sirve para medir qué tan seguido el usuario falla al darle clic por ser pequeño -->
-  <section id="contacto" class="bloque-contacto">
-    <h2>Contáctanos</h2>
-    <p>Suscríbete para enterarte de promociones y nuevos productos.</p>
-    <button class="boton-chico" data-nai-target="accion">Suscribirse al boletín</button>
-  </section>
+        <!-- Tres botones de distinto tamaño: data-nai-target="accion" sirve para medir
+             qué tan fácil es acertarles (el chico está más abajo, en Contacto). -->
+        <div class="botones">
+          <a class="boton boton-grande" href="#menu" data-nai-target="accion">Ver menú completo</a>
+          <a class="boton boton-normal" href="#contacto" data-nai-target="accion">Reservar mesa</a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Esto es el pie de página, sirve solo de cierre visual -->
+    <!-- ============ MENÚ ============ -->
+    <section id="menu" class="seccion">
+      <div class="contenedor">
+        <h2>Nuestro menú</h2>
+        <p class="destacado">Lo que más se pide en la barra.</p>
+
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <figure class="imagen" data-archivo="imagenes/espresso.jpg">
+              <img src="imagenes/espresso.jpg" alt="Taza de espresso" loading="lazy" onerror="this.remove()">
+            </figure>
+            <h3>Espresso</h3>
+            <p>Doble, intenso, con crema espesa.</p>
+            <p class="precio">$38</p>
+          </article>
+
+          <article class="tarjeta">
+            <figure class="imagen" data-archivo="imagenes/capuchino.jpg">
+              <img src="imagenes/capuchino.jpg" alt="Capuchino con espuma" loading="lazy" onerror="this.remove()">
+            </figure>
+            <h3>Capuchino</h3>
+            <p>Leche texturizada y una capa de espuma firme.</p>
+            <p class="precio">$52</p>
+          </article>
+
+          <article class="tarjeta">
+            <figure class="imagen" data-archivo="imagenes/latte.jpg">
+              <img src="imagenes/latte.jpg" alt="Latte frío con hielo" loading="lazy" onerror="this.remove()">
+            </figure>
+            <h3>Latte frío</h3>
+            <p>Espresso sobre hielo con leche fría y un toque de vainilla.</p>
+            <p class="precio">$58</p>
+          </article>
+
+          <article class="tarjeta">
+            <figure class="imagen" data-archivo="imagenes/pan.jpg">
+              <img src="imagenes/pan.jpg" alt="Pan dulce recién horneado" loading="lazy" onerror="this.remove()">
+            </figure>
+            <h3>Pan dulce del día</h3>
+            <p>Horneado cada mañana. Sale hasta que se acaba.</p>
+            <p class="precio">$28</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANIMADO 3 -->
+    <div class="cinta cinta-doble" data-nai-motion data-nai-extra aria-hidden="true">
+      <span class="cinta-texto">Pregunta por el café del mes &bull; Granos de tueste medio &bull; Leche entera o de avena &bull; Pregunta por el café del mes &bull; Granos de tueste medio &bull; Leche entera o de avena</span>
+    </div>
+
+    <!-- ============ NOSOTROS ============ -->
+    <section id="nosotros" class="seccion">
+      <div class="contenedor">
+        <h2>Nosotros</h2>
+
+        <!-- data-nai-block = "bloque de lectura": el script mide si la persona
+             sube y baja mucho aquí (relectura) o lo deja rápido (atención). -->
+        <article class="bloque" data-nai-block="historia">
+          <figure class="imagen" data-archivo="imagenes/historia.jpg">
+            <img src="imagenes/historia.jpg" alt="Fundadores de la cafetería" loading="lazy" onerror="this.remove()">
+          </figure>
+          <div class="texto">
+            <h3>Nuestra historia</h3>
+            <p>Empezamos tres amigos con una máquina de segunda mano y una idea sencilla: que tomar café fuera un momento tranquilo y no una carrera. Al principio atendíamos en una mesa chica, con cinco tazas y mucha paciencia.</p>
+            <p>Hoy seguimos igual de tercos. Nos tomamos el tiempo de preparar cada bebida, recordamos tu pedido de siempre y la barra sigue siendo el mejor lugar para platicar.</p>
+          </div>
+        </article>
+
+        <article class="bloque bloque-invertido" data-nai-block="granos">
+          <figure class="imagen" data-archivo="imagenes/granos.jpg">
+            <img src="imagenes/granos.jpg" alt="Granos de café tostados" loading="lazy" onerror="this.remove()">
+          </figure>
+          <div class="texto">
+            <h3>Nuestros granos de café</h3>
+            <p>Trabajamos con pequeños productores y compramos por lote, no por volumen. Tostamos en tandas cortas para que el grano llegue a tu taza con todo su aroma y sin amargor de más.</p>
+            <p>Cada mes elegimos un café distinto para la barra. Pregúntanos por el del mes: te contamos de dónde viene, cómo lo preparamos y qué notas puedes buscar.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS ============ -->
+    <section id="preguntas" class="seccion">
+      <div class="contenedor">
+        <h2>Preguntas</h2>
+
+        <article class="bloque bloque-texto" data-nai-block="preguntas">
+          <div class="texto">
+            <h3>Preguntas frecuentes</h3>
+
+            <h4>¿Necesito reservar?</h4>
+            <p>No es obligatorio. Si vienes en grupo de seis o más, reservar nos ayuda a juntarte las mesas.</p>
+
+            <h4>¿Tienen opciones sin lácteos?</h4>
+            <p>Sí. Preparamos cualquier bebida con leche de avena sin costo extra.</p>
+
+            <h4>¿Se puede trabajar con laptop?</h4>
+            <p>Claro. Hay enchufes en la pared del fondo y el internet es gratis. Solo te pedimos no ocupar mesas grandes en hora pico.</p>
+
+            <h4>¿Venden café en grano?</h4>
+            <p>Sí, en bolsa de 250 gramos. Lo molemos al momento si lo prefieres.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ANIMADO 4 -->
+    <div class="cinta" data-nai-motion data-nai-extra aria-hidden="true">
+      <span class="cinta-texto">Gracias por venir &bull; Vuelve pronto &bull; Gracias por venir &bull; Vuelve pronto &bull; Gracias por venir &bull; Vuelve pronto</span>
+    </div>
+
+    <!-- ============ CONTACTO ============ -->
+    <section id="contacto" class="seccion">
+      <div class="contenedor">
+        <h2>Contacto</h2>
+        <figure class="imagen imagen-grande" data-archivo="imagenes/local.jpg">
+          <img src="imagenes/local.jpg" alt="Fachada de la cafetería" loading="lazy" onerror="this.remove()">
+        </figure>
+
+        <p><strong>Dirección:</strong> Calle Ejemplo 123, Centro</p>
+        <p><strong>Horario:</strong> Todos los días, de 8:00 a 21:00</p>
+        <p><strong>Correo:</strong> hola@lospichuloslocos.example</p>
+
+        <!-- El botón chico (el más difícil de acertar, a propósito) -->
+        <p>
+          <button type="button" class="boton boton-chico" data-nai-target="accion"
+                  onclick="this.textContent='¡Gracias por suscribirte!'">Suscribirse al boletín</button>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
   <footer class="pie">
-    <p>&copy; 2026 Los Pichulos Locos. Todos los derechos reservados.</p>
+    <p>&copy; Los Pichulos Locos. Cafetería ficticia de demostración.</p>
   </footer>
 
-  <!-- Esto conecta nuestro código JavaScript, sirve para que la página -->
-  <!-- detecte los patrones de uso y se adapte sola -->
   <script src="script.js"></script>
 </body>
 </html>
