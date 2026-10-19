@@ -1,0 +1,172 @@
+/* Esto define los colores y tamaños base en un solo lugar. */
+/* Sirve para que después el código de adaptación cambie la página */
+/* modificando estas variables, sin tocar el resto del diseño. */
+:root {
+  --color-fondo: #faf5ee;
+  --color-texto: #3b2a20;
+  --color-cafe: #6f4e37;
+  --color-cafe-oscuro: #4a3222;
+  --color-crema: #f0e4d3;
+  --tamano-texto: 18px;
+  --relleno-clic: 0px;
+}
+
+/* Esto aplica el estilo general a toda la página */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: var(--tamano-texto);
+  line-height: 1.6;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+/* Esto es el encabezado fijo arriba, sirve para que el menú */
+/* siempre esté visible mientras la persona hace scroll */
+.encabezado {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  background: var(--color-cafe-oscuro);
+  color: #fff;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Esto es el menú de enlaces. Están chiquitos y pegados a propósito, */
+/* sirve para poner a prueba la precisión del mouse */
+.menu {
+  display: flex;
+  gap: 4px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: calc(4px + var(--relleno-clic)) calc(8px + var(--relleno-clic));
+  border-radius: 4px;
+}
+
+.menu a:hover {
+  background: var(--color-cafe);
+}
+
+/* Esto es la portada, la primera pantalla que ve la persona */
+.portada {
+  text-align: center;
+  padding: 90px 24px;
+  background: linear-gradient(135deg, var(--color-cafe), var(--color-cafe-oscuro));
+  color: #fff;
+}
+
+.portada h1 {
+  margin: 0 0 12px;
+  font-size: 2.4rem;
+}
+
+/* Esto limita el ancho del texto largo para que se lea cómodo, */
+/* sirve para que los bloques parezcan un artículo real */
+.bloque-texto,
+.bloque-contacto {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.bloque-texto h2,
+.bloque-contacto h2 {
+  color: var(--color-cafe);
+  border-bottom: 2px solid var(--color-crema);
+  padding-bottom: 8px;
+}
+
+.bloque-contacto {
+  text-align: center;
+  background: var(--color-crema);
+  max-width: none;
+}
+
+/* Esto define los tres tamaños de botón: grande, normal y chico. */
+/* Sirve para comparar en cuál falla más la persona al dar clic */
+button {
+  font-family: inherit;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--color-cafe);
+  color: #fff;
+}
+
+button:hover {
+  background: var(--color-cafe-oscuro);
+}
+
+.boton-grande {
+  font-size: 1.2rem;
+  padding: 16px 36px;
+  background: #fff;
+  color: var(--color-cafe-oscuro);
+}
+
+.boton-grande:hover {
+  background: var(--color-crema);
+}
+
+.boton-normal {
+  font-size: 1rem;
+  padding: 10px 22px;
+}
+
+/* Este es el botón chiquito a propósito, es el más difícil de acertar */
+.boton-chico {
+  font-size: 0.7rem;
+  padding: calc(3px + var(--relleno-clic)) calc(8px + var(--relleno-clic));
+}
+
+/* Esto es el pie de página, sirve solo de cierre visual */
+.pie {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.85rem;
+  background: var(--color-cafe-oscuro);
+  color: #d9c8b4;
+}
+
+.pie p {
+  margin: 0;
+}
+
+/* Esto es para cuando la página se adapte automáticamente. */
+/* Sirve para que el código pueda activar estas clases en el body */
+/* y la página cambie sin recargarse. Todavía no se usan. */
+
+/* Texto más grande */
+body.adapt-texto-grande {
+  --tamano-texto: 22px;
+}
+
+/* Botones y enlaces con más área de clic */
+body.adapt-clics-grandes {
+  --relleno-clic: 10px;
+}
+
+/* Más contraste entre texto y fondo */
+body.adapt-contraste-alto {
+  --color-fondo: #ffffff;
+  --color-texto: #000000;
+  --color-cafe: #3a2415;
+  --color-cafe-oscuro: #000000;
+}
